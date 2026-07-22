@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amber · brand guidelines</title>
+<meta name="description" content="The Amber brand system: logo, colour, typography, voice, and visual style, with the reasoning behind each.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amber · brand guidelines">
+<meta property="og:description" content="The Amber brand system: logo, colour, typography, voice, and visual style.">
+<meta property="og:image" content="https://amber-a1.vercel.app/img/hero.jpg">
+<meta property="og:url" content="https://amber-a1.vercel.app/guidelines.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/amber.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3CradialGradient%20id='b'%20cx='42%'%20cy='33%'%20r='70%'%3E%3Cstop%20offset='0%'%20stop-color='%23FCE3B4'/%3E%3Cstop%20offset='34%'%20stop-color='%23EAB05E'/%3E%3Cstop%20offset='68%'%20stop-color='%23D18E38'/%3E%3Cstop%20offset='100%'%20stop-color='%23A0641F'/%3E%3C/radialGradient%3E%3CradialGradient%20id='s'%20cx='50%'%20cy='50%'%20r='50%'%3E%3Cstop%20offset='0%'%20stop-color='%23FFFDF6'%20stop-opacity='.6'/%3E%3Cstop%20offset='70%'%20stop-color='%23FFFDF6'%20stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx='50'%20cy='50'%20r='50'%20fill='url(%23b)'/%3E%3Cellipse%20cx='41'%20cy='38'%20rx='13'%20ry='10'%20fill='url(%23s)'/%3E%3C/svg%3E">
+<style>
+  .g-wrap{ max-width:900px; margin:0 auto; padding-inline:clamp(20px,5vw,40px); }
+  .g-hero{ padding:clamp(60px,10vw,120px) 0 clamp(30px,4vw,48px); }
+  .g-hero .arc{ font-size:13px; letter-spacing:.02em; color:var(--umber); font-weight:600; }
+  .g-hero h1{ font-size:clamp(38px,6.5vw,72px); font-weight:620; letter-spacing:-.03em; line-height:1.02; margin:16px 0 18px; }
+  .g-hero p{ font-size:clamp(17px,2vw,20px); color:var(--umber); max-width:54ch; }
+
+  .g-sec{ padding-block:clamp(40px,6vw,72px); border-top:1px solid var(--hair); }
+  .g-num{ font-size:12px; letter-spacing:.14em; color:var(--stone); font-weight:600; }
+  .g-sec h2{ font-size:clamp(24px,3.6vw,36px); font-weight:620; letter-spacing:-.02em; margin:10px 0 12px; }
+  .g-sec h3{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--umber); font-weight:600; margin:28px 0 12px; }
+  .g-sec p{ font-size:16px; color:#3A342B; max-width:64ch; margin-bottom:16px; }
+  .g-sec p strong{ color:var(--ink); font-weight:600; }
+
+  .g-stage{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:20px 0; }
+  @media(max-width:640px){ .g-stage{ grid-template-columns:1fr; } }
+  .g-stage .box{ border-radius:18px; min-height:150px; display:flex; align-items:center; justify-content:center; padding:26px; }
+  .g-stage .light{ background:var(--white); box-shadow:inset 0 0 0 1px var(--hair); }
+  .g-stage .dark{ background:var(--dusk); }
+  .g-icons{ display:flex; gap:22px; align-items:center; flex-wrap:wrap; justify-content:center; }
+
+  .swgrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; margin:20px 0; }
+  .swgrid .sw{ border-radius:14px; overflow:hidden; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); }
+  .swgrid .sw i{ display:block; height:72px; }
+  .swgrid .sw .m{ display:block; padding:10px 12px; font-size:12px; background:var(--white); }
+  .swgrid .sw .m b{ display:block; font-weight:600; font-size:13px; }
+  .swgrid .sw .m span{ color:var(--umber); font-variant-numeric:tabular-nums; }
+  .g-dark-swgrid .sw .m{ background:var(--plum); color:var(--moon); }
+  .g-dark-swgrid .sw .m span{ color:var(--haze); }
+
+  .cstab{ width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .cstab th,.cstab td{ text-align:left; padding:9px 12px 9px 0; border-bottom:1px solid var(--hair); vertical-align:top; }
+  .cstab th{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--umber); font-weight:600; }
+  .cstab td code{ font-family:ui-monospace,monospace; font-size:12.5px; color:var(--umber); }
+  .pass{ color:#3E7A34; font-weight:600; }
+
+  .typerow{ display:flex; align-items:baseline; gap:22px; padding:15px 0; border-bottom:1px solid var(--hair); }
+  .typerow:last-child{ border-bottom:none; }
+  .typerow .lab{ flex:0 0 130px; font-size:11px; color:var(--umber); font-weight:600; letter-spacing:.06em; text-transform:uppercase; }
+  @media(max-width:600px){ .typerow{ flex-direction:column; gap:6px; } .typerow .lab{ flex-basis:auto; } }
+  .t-d1{ font-size:clamp(30px,4vw,44px); font-weight:620; letter-spacing:-.03em; line-height:1.02; }
+  .t-d2{ font-size:28px; font-weight:620; letter-spacing:-.02em; }
+  .t-bl{ font-size:18px; } .t-b{ font-size:16px; } .t-cap{ font-size:13px; color:var(--umber); }
+  .t-serif{ font-family:'Fraunces',serif; font-weight:560; }
+
+  .vox{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0; }
+  @media(max-width:600px){ .vox{ grid-template-columns:1fr; } }
+  .vox .v{ border-radius:16px; padding:16px 18px; font-size:15px; }
+  .vox .say{ background:var(--tile); }
+  .vox .not{ background:var(--white); box-shadow:inset 0 0 0 1px var(--hair); color:var(--umber); }
+  .vox .v b{ display:block; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:7px; font-weight:600; }
+  .vox .say b{ color:var(--ember); } .vox .not b{ color:var(--stone); }
+  .vox .not s{ text-decoration-color:rgba(110,100,85,.4); }
+
+  ul.rules{ list-style:none; padding:0; margin:0; max-width:66ch; }
+  ul.rules li{ position:relative; padding:12px 0 12px 26px; font-size:16px; color:#3A342B; border-bottom:1px solid var(--hair); }
+  ul.rules li:last-child{ border-bottom:none; }
+  ul.rules li::before{ content:""; position:absolute; left:2px; top:19px; width:9px; height:9px; border-radius:50%;
+    background:radial-gradient(circle at 40% 32%, var(--amb-hi), #D3903A 65%); }
+  ul.rules li b{ color:var(--ink); font-weight:600; }
+
+  .finrow2{ display:flex; gap:clamp(20px,4vw,48px); justify-content:center; flex-wrap:wrap; margin:8px 0; }
+  .finrow2 figure{ text-align:center; margin:0; }
+  .finrow2 figcaption{ margin-top:14px; font-size:13px; font-weight:600; }
+  .finrow2 figcaption span{ display:block; font-weight:450; font-size:12px; color:var(--umber); }
+
+  .g-foot{ border-top:1px solid var(--hair); padding:48px 0 90px; }
+  .g-foot .wm{ font-family:'Fraunces',serif; font-weight:560; font-size:24px; }
+  .g-foot .wm span{ font-family:'Inter Tight',sans-serif; font-size:13px; font-weight:450; color:var(--umber); }
+  .backlink{ display:inline-block; margin-top:16px; font-size:14px; color:var(--ember); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap-n">
+    <a class="mark" href="index.html">Amber</a>
+    <a class="tab" href="index.html">Overview</a>
+    <a class="tab" href="product.html">Product</a>
+    <a class="tab" href="how-it-works.html">How it works</a>
+    <a class="tab" href="case-study.html">Case study</a>
+    <a class="btn" href="index.html">&larr; Back to the site</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="g-hero">
+  <div class="g-wrap">
+    <p class="arc">Brand guidelines</p>
+    <h1>The Amber brand system.</h1>
+      </div>
+</section>
+
+<!-- LOGO -->
+<section class="g-sec">
+  <div class="g-wrap">
+    <p class="g-num">01 · LOGO</p>
+    <h2>A name and a mark.</h2>
+    <p>The <strong>wordmark</strong> is Amber set in Fraunces. The <strong>mark</strong> is the Orb: a glowing amber disc, the pendant seen from the front and the light itself. The word stays clean in menus and headlines; the Orb fills small square spaces like the app icon and favicon.</p>
+    <svg width="0" height="0" style="position:absolute"><defs>
+      <radialGradient id="amb" cx="42%" cy="33%" r="70%"><stop offset="0%" stop-color="#FCE3B4"/><stop offset="34%" stop-color="#EAB05E"/><stop offset="68%" stop-color="#D18E38"/><stop offset="100%" stop-color="#A0641F"/></radialGradient>
+      <radialGradient id="sheen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FFFDF6" stop-opacity=".6"/><stop offset="70%" stop-color="#FFFDF6" stop-opacity="0"/></radialGradient>
+    </defs></svg>
+    <div class="g-stage">
+      <div class="box light">
+        <svg width="230" height="80" viewBox="0 0 230 80" role="img" aria-label="Amber wordmark on white"><text x="115" y="54" text-anchor="middle" font-family="Fraunces,serif" font-weight="560" font-size="42" fill="#1D1815">Amber</text></svg>
+      </div>
+      <div class="box dark">
+        <svg width="230" height="80" viewBox="0 0 230 80" role="img" aria-label="Amber wordmark on dusk"><text x="115" y="54" text-anchor="middle" font-family="Fraunces,serif" font-weight="560" font-size="42" fill="#F0EAE0">Amber</text></svg>
+      </div>
+      <div class="box light">
+        <svg width="120" height="120" viewBox="0 0 120 120" role="img" aria-label="The Orb"><circle cx="60" cy="60" r="34" fill="url(#amb)"/><ellipse cx="50" cy="50" rx="11" ry="8" fill="url(#sheen)"/></svg>
+      </div>
+      <div class="box dark">
+        <div class="g-icons">
+          <svg width="70" height="70" viewBox="0 0 70 70" role="img" aria-label="App icon on plum"><rect width="70" height="70" rx="16.5" fill="#221D2C"/><circle cx="35" cy="35" r="16.5" fill="url(#amb)"/></svg>
+          <svg width="46" height="46" viewBox="0 0 46 46" role="img" aria-label="App icon on linen"><rect width="46" height="46" rx="11" fill="#F5F1E8"/><circle cx="23" cy="23" r="11" fill="url(#amb)"/></svg>
+          <svg width="30" height="30" viewBox="0 0 30 30" role="img" aria-label="Favicon size"><circle cx="15" cy="15" r="13" fill="url(#amb)"/></svg>
+        </div>
+      </div>
+    </div>
+    <ul class="rules">
+      <li><b>Always lit.</b> The Orb carries its gradient everywhere. Never flat, never outlined.</li>
+      <li><b>Give it room.</b> Clear space around the Orb equals its own radius.</li>
+      <li><b>One mark per view.</b> It is the product's presence, not a repeated pattern.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- COLOUR -->
+<section class="g-sec">
+  <div class="g-wrap">
+    <p class="g-num">02 · COLOUR</p>
+    <h2>Two grounds, one light.</h2>
+    <p>Warm and quiet on white, with a single dark "dusk" world for evening moments. Amber is the accent, and it appears <strong>only where Amber acts</strong>: its light, its words, its buttons. That one rule keeps the eye calm and lets the product feel present without shouting.</p>
+    <h3>Light system (default)</h3>
+    <div class="swgrid">
+      <div class="sw"><i style="background:#FFFFFF; box-shadow:inset 0 0 0 1px #E9E4D9"></i><span class="m"><b>White</b><span>#FFFFFF · ground</span></span></div>
+      <div class="sw"><i style="background:#F5F1E8"></i><span class="m"><b>Linen</b><span>#F5F1E8 · surface</span></span></div>
+      <div class="sw"><i style="background:#1D1815"></i><span class="m"><b>Ink</b><span>#1D1815 · text</span></span></div>
+      <div class="sw"><i style="background:#6E6455"></i><span class="m"><b>Umber</b><span>#6E6455 · muted</span></span></div>
+      <div class="sw"><i style="background:#96541F"></i><span class="m"><b>Ember</b><span>#96541F · accent text</span></span></div>
+      <div class="sw"><i style="background:radial-gradient(circle at 42% 30%,#F0D19B,#D3903A 60%,#B47328)"></i><span class="m"><b>Amber</b><span>the light only</span></span></div>
+      <div class="sw"><i style="background:#CBC0AF"></i><span class="m"><b>Stone</b><span>#CBC0AF · borders</span></span></div>
+    </div>
+    <h3>Dusk system (evening)</h3>
+    <div class="swgrid g-dark-swgrid">
+      <div class="sw"><i style="background:#191521"></i><span class="m"><b>Dusk</b><span>#191521 · ground</span></span></div>
+      <div class="sw"><i style="background:#221D2C"></i><span class="m"><b>Plum</b><span>#221D2C · surface</span></span></div>
+      <div class="sw"><i style="background:#F0EAE0"></i><span class="m"><b>Moonlight</b><span>#F0EAE0 · text</span></span></div>
+      <div class="sw"><i style="background:#A79BBE"></i><span class="m"><b>Haze</b><span>#A79BBE · muted</span></span></div>
+      <div class="sw"><i style="background:radial-gradient(circle at 42% 30%,#FFD79B,#FFB45C 60%,rgba(255,180,92,.3))"></i><span class="m"><b>Firelight</b><span>the light only</span></span></div>
+    </div>
+    <h3>Contrast, measured (WCAG 2.1)</h3>
+    <p>Colours were chosen for readability, not just warmth. Every text pairing was measured. One result became a rule: amber reaches only 2.2:1 on white, so <strong>amber never sits under text</strong>. It stays a glow, a mark, and decoration.</p>
+    <table class="cstab">
+      <tr><th>Pair</th><th>Ratio</th><th>Result</th><th>Use</th></tr>
+      <tr><td>Ink / White</td><td><code>17.6:1</code></td><td><span class="pass">AAA</span></td><td>Body text</td></tr>
+      <tr><td>Umber / White</td><td><code>5.8:1</code></td><td><span class="pass">AA</span></td><td>Muted text</td></tr>
+      <tr><td>Ember / White</td><td><code>5.9:1</code></td><td><span class="pass">AA</span></td><td>Links, accents</td></tr>
+      <tr><td>Moonlight / Dusk</td><td><code>15.0:1</code></td><td><span class="pass">AAA</span></td><td>Dusk text</td></tr>
+      <tr><td>Firelight / Dusk</td><td><code>10.2:1</code></td><td><span class="pass">AAA</span></td><td>Dusk accents</td></tr>
+      <tr><td>Amber / White</td><td><code>2.2:1</code></td><td>below AA</td><td>Never text</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="g-sec">
+  <div class="g-wrap">
+    <p class="g-num">03 · TYPOGRAPHY</p>
+    <h2>One workhorse, one signature.</h2>
+    <p><strong>Inter Tight</strong> carries everything: headlines tight at 620, body at 450, labels at 600. It is confident and easy to translate for a global audience. <strong>Fraunces</strong>, a warm serif, appears in one place only, the wordmark, so it stays a signature rather than a style. The warmth of the brand comes from the light, the colour, and the words, not the font.</p>
+    <div>
+      <div class="typerow"><span class="lab">Wordmark</span><span class="t-serif" style="font-size:36px">Amber</span></div>
+      <div class="typerow"><span class="lab">Display / 44–96</span><span class="t-d1">The most natural way to talk to AI.</span></div>
+      <div class="typerow"><span class="lab">Heading / 28</span><span class="t-d2">A companion, not a screen</span></div>
+      <div class="typerow"><span class="lab">Body large / 18</span><span class="t-bl">Ask it anything, simply by talking.</span></div>
+      <div class="typerow"><span class="lab">Body / 16</span><span class="t-b">Nothing is recorded unless you ask. A twist of the ring mutes it.</span></div>
+      <div class="typerow"><span class="lab">Caption / 13</span><span class="t-cap">About two days of battery between charges.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSIBILITY -->
+<section class="g-sec">
+  <div class="g-wrap">
+    <p class="g-num">04 · ACCESSIBILITY</p>
+    <h2>Calm that works for everyone.</h2>
+    <ul class="rules">
+      <li>All text pairs meet WCAG 2.1 AA; core reading paths reach AAA.</li>
+      <li>Keyboard focus is always visible: a 2px ember outline, offset 2px.</li>
+      <li>Type scales fluidly, and body text never renders below 16px.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="g-foot">
+  <div class="g-wrap">
+    <div class="wm">Amber <span>by A1</span></div>
+    <a class="backlink" href="index.html">← Back to the site</a>
+  </div>
+</footer>
+
+</body>
+</html>

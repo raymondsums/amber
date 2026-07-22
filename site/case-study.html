@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amber · design case study</title>
+<meta name="description" content="How Amber went from a blank brief to a finished brand and website: the process, the choices, and the reasoning behind a calm AI companion.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amber · design case study">
+<meta property="og:description" content="From a blank brief to a finished brand and website for a calm AI companion.">
+<meta property="og:image" content="https://amber-a1.vercel.app/img/hero.jpg">
+<meta property="og:url" content="https://amber-a1.vercel.app/case-study.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/amber.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3CradialGradient%20id='b'%20cx='42%'%20cy='33%'%20r='70%'%3E%3Cstop%20offset='0%'%20stop-color='%23FCE3B4'/%3E%3Cstop%20offset='34%'%20stop-color='%23EAB05E'/%3E%3Cstop%20offset='68%'%20stop-color='%23D18E38'/%3E%3Cstop%20offset='100%'%20stop-color='%23A0641F'/%3E%3C/radialGradient%3E%3CradialGradient%20id='s'%20cx='50%'%20cy='50%'%20r='50%'%3E%3Cstop%20offset='0%'%20stop-color='%23FFFDF6'%20stop-opacity='.6'/%3E%3Cstop%20offset='70%'%20stop-color='%23FFFDF6'%20stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx='50'%20cy='50'%20r='50'%20fill='url(%23b)'/%3E%3Cellipse%20cx='41'%20cy='38'%20rx='13'%20ry='10'%20fill='url(%23s)'/%3E%3C/svg%3E">
+<style>
+  .cs-wrap{ max-width:820px; margin:0 auto; padding-inline:clamp(20px,5vw,40px); }
+  .cs-hero{ padding:clamp(60px,10vw,120px) 0 clamp(36px,5vw,56px); }
+  .cs-hero .arc{ font-size:13px; letter-spacing:.02em; color:var(--umber); font-weight:600; }
+  .cs-hero h1{ font-size:clamp(38px,6.5vw,72px); font-weight:620; letter-spacing:-.03em; line-height:1.02; margin:16px 0 20px; }
+  .cs-hero p.sub{ font-size:clamp(17px,2vw,21px); color:var(--umber); max-width:52ch; }
+  .cs-meta{ display:flex; flex-wrap:wrap; gap:28px 48px; margin-top:36px; padding-top:28px; border-top:1px solid var(--hair); }
+  .cs-meta div b{ display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--umber); font-weight:600; margin-bottom:6px; }
+  .cs-meta div span{ font-size:15px; }
+  .cs-meta a{ color:var(--ember); font-weight:600; text-decoration:none; }
+
+  .cs-sec{ padding-block:clamp(40px,6vw,72px); border-top:1px solid var(--hair); }
+  .cs-num{ font-size:12px; letter-spacing:.14em; color:var(--stone); font-weight:600; }
+  .cs-sec h2{ font-size:clamp(26px,4vw,40px); font-weight:620; letter-spacing:-.02em; line-height:1.08; margin:10px 0 20px; text-wrap:balance; }
+  .cs-sec h3{ font-size:18px; font-weight:620; letter-spacing:-.01em; margin:28px 0 8px; }
+  .cs-sec p{ font-size:16.5px; color:#3A342B; max-width:64ch; margin-bottom:16px; }
+  .cs-sec p strong{ color:var(--ink); font-weight:600; }
+  .cs-sec ul{ margin:0 0 16px; padding-left:0; list-style:none; max-width:64ch; }
+  .cs-sec ul li{ position:relative; padding:8px 0 8px 26px; font-size:16px; color:#3A342B; border-bottom:1px solid var(--hair); }
+  .cs-sec ul li:last-child{ border-bottom:none; }
+  .cs-sec ul li::before{ content:""; position:absolute; left:2px; top:15px; width:9px; height:9px; border-radius:50%;
+    background:radial-gradient(circle at 40% 32%, var(--amb-hi), #D3903A 65%); }
+  .cs-sec ul li b{ color:var(--ink); font-weight:600; }
+
+  /* numbered constraints */
+  .cons{ margin:20px 0; }
+  .cons .row{ display:grid; grid-template-columns:44px 1fr; gap:16px; padding:18px 0; border-bottom:1px solid var(--hair); }
+  .cons .row:last-child{ border-bottom:none; }
+  .cons .n{ font-size:14px; font-weight:620; color:var(--stone); font-variant-numeric:tabular-nums; }
+  .cons .row b{ display:block; font-size:16.5px; font-weight:620; letter-spacing:-.01em; margin-bottom:5px; }
+  .cons .row p{ margin:0; font-size:15px; color:var(--umber); }
+
+  .pullquote{ font-family:'Fraunces',serif; font-weight:560; font-size:clamp(22px,3.2vw,32px); line-height:1.28;
+    letter-spacing:-.01em; color:var(--ink); margin:32px 0; max-width:24ch; }
+  .pullquote span{ color:var(--ember); }
+
+  .cs-card{ background:var(--tile); border-radius:20px; padding:26px 28px; margin:24px 0; }
+  .cs-card.dark{ background:var(--dusk); color:var(--moon); }
+  .cs-card.dark p{ color:var(--haze); } .cs-card.dark strong{ color:var(--moon); }
+  .cs-card h4{ font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ember); font-weight:600; margin-bottom:12px; }
+  .cs-card.dark h4{ color:var(--fire); }
+  .cs-card p:last-child{ margin-bottom:0; }
+
+  .swgrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(120px,1fr)); gap:10px; margin:20px 0; }
+  .swgrid .sw{ border-radius:12px; overflow:hidden; box-shadow:inset 0 0 0 1px rgba(0,0,0,.08); }
+  .swgrid .sw i{ display:block; height:56px; } .swgrid .sw span{ display:block; padding:8px 10px; font-size:11.5px; background:var(--white); color:var(--umber); font-variant-numeric:tabular-nums; }
+
+  .cstab{ width:100%; border-collapse:collapse; font-size:14px; margin:16px 0; }
+  .cstab th,.cstab td{ text-align:left; padding:9px 12px 9px 0; border-bottom:1px solid var(--hair); vertical-align:top; }
+  .cstab th{ font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--umber); font-weight:600; }
+  .cstab td code{ font-family:ui-monospace,monospace; font-size:12.5px; color:var(--umber); }
+  .pass{ color:#3E7A34; font-weight:600; }
+
+  .beforeafter{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0; }
+  @media(max-width:640px){ .beforeafter{ grid-template-columns:1fr; } }
+  .beforeafter div{ border-radius:16px; padding:18px 20px; font-size:14.5px; }
+  .beforeafter .b{ background:var(--white); box-shadow:inset 0 0 0 1px var(--hair); color:var(--umber); }
+  .beforeafter .a{ background:var(--tile); }
+  .beforeafter b{ display:block; font-size:11px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; font-weight:600; }
+  .beforeafter .b b{ color:var(--stone); } .beforeafter .a b{ color:var(--ember); }
+
+  .csorb{ width:84px; height:84px; margin:6px 0 20px; background:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Cdefs%3E%3CradialGradient%20id='b'%20cx='42%'%20cy='33%'%20r='70%'%3E%3Cstop%20offset='0%'%20stop-color='%23FCE3B4'/%3E%3Cstop%20offset='34%'%20stop-color='%23EAB05E'/%3E%3Cstop%20offset='68%'%20stop-color='%23D18E38'/%3E%3Cstop%20offset='100%'%20stop-color='%23A0641F'/%3E%3C/radialGradient%3E%3CradialGradient%20id='s'%20cx='50%'%20cy='50%'%20r='50%'%3E%3Cstop%20offset='0%'%20stop-color='%23FFFDF6'%20stop-opacity='.6'/%3E%3Cstop%20offset='70%'%20stop-color='%23FFFDF6'%20stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle%20cx='50'%20cy='50'%20r='50'%20fill='url(%23b)'/%3E%3Cellipse%20cx='41'%20cy='38'%20rx='13'%20ry='10'%20fill='url(%23s)'/%3E%3C/svg%3E") center/contain no-repeat; filter:drop-shadow(0 12px 24px rgba(160,105,40,.4)); }
+  .cs-foot{ border-top:1px solid var(--hair); padding:48px 0 90px; }
+  .cs-foot .wm{ font-family:'Fraunces',serif; font-weight:560; font-size:24px; }
+  .cs-foot .wm span{ font-family:'Inter Tight',sans-serif; font-size:13px; font-weight:450; color:var(--umber); }
+  .cs-foot p{ font-size:13px; color:var(--stone); margin-top:14px; }
+  .backlink{ display:inline-block; margin-top:18px; font-size:14px; color:var(--ember); text-decoration:none; font-weight:600; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap-n">
+    <a class="mark" href="index.html">Amber</a>
+    <a class="tab" href="index.html">Overview</a>
+    <a class="tab" href="product.html">Product</a>
+    <a class="tab" href="how-it-works.html">How it works</a>
+    <a class="tab" href="guidelines.html">Guidelines</a>
+    <a class="btn" href="index.html">&larr; Back to the site</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="cs-wrap">
+    <p class="arc">Design case study · Interaction Design, HCI</p>
+    <h1>The most natural way to talk to AI.</h1>
+    <div class="cs-meta">
+      <div><b>Brief</b><span>Brand identity and website for a concept AI device</span></div>
+      <div><b>Live prototype</b><span><a href="https://amber-a1.vercel.app">amber-a1.vercel.app&nbsp;→</a></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 THE STARTING POINT -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">01 · THE STARTING POINT</p>
+    <h2>An open brief.</h2>
+    <p>The brief handed over everything: define the product, the user, and the problem, then design the brand and three screens for a global audience. A1 was to be its own brand, with every assumption stated out loud. So the first move was to commit to a product.</p>
+    <p>Amber became a <strong>small pendant with no screen</strong>, not an app and not an earbud. A pendant makes the strongest case for talking to AI out loud, and a screenless device forces the more interesting problem: it has to say everything with light and touch.</p>
+  </div>
+</section>
+
+<!-- 02 CONCEPT + NAME -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">02 · THE CONCEPT & THE NAME</p>
+    <h2>From "AI device" to Amber.</h2>
+    <p>Every question you ask AI today starts on the most distracting object you own, and often ends twenty minutes later in a feed. Calm technology is the answer: a companion that hands your attention back instead of competing for it.</p>
+
+    <h3>Why the name is Amber</h3>
+    <p>The search started warm and human, then narrowed to names beginning with A so the product would sit under the A1 brand. <strong>Amber</strong> won because it does four jobs at once, and every one is true of the product:</p>
+    <ul>
+      <li><b>A warm glow.</b> Light without glare. That is the calm promise in a single image.</li>
+      <li><b>A pendant stone.</b> The shape of the device itself, worn against your clothes.</li>
+      <li><b>Something that keeps a moment safe.</b> Real amber traps and preserves, which is what the app does with your day.</li>
+      <li><b>A human name.</b> "Talk to Amber" feels like talking to someone, not operating a gadget.</li>
+    </ul>
+    <p>It is easy to say in most languages, carries no bad meanings I could find, and its A ties it to A1. Amber explains the product the moment you hear it.</p>
+  </div>
+</section>
+
+<!-- 03 BRAND RATIONALE -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">03 · THE BRAND, AND WHY</p>
+    <h2>Every choice earns its place.</h2>
+
+    <h3>The logo: a word and a light</h3>
+    <div class="csorb"></div>
+    <p>The identity is two marks used on their own. The <strong>wordmark</strong> is Amber set in a warm serif. The <strong>Orb</strong> is the icon: a plain circle filled with the amber glow. It reads as three things at once, the pendant seen from the front, the amber stone, and the light itself. Keeping the marks apart lets the word stay clean in the menus while the Orb fills small square spaces like the app icon. A circle works at any size with no redrawing.</p>
+
+    <h3>Colour: one honest accent</h3>
+    <p>The palette is warm and quiet on white. Amber is the accent, and it appears <strong>only where Amber acts</strong>: its light, its words, its buttons. One dark "dusk" world shows up for evening moments. The restraint keeps the eye calm and lets the product feel present without shouting.</p>
+    <div class="swgrid">
+      <div class="sw"><i style="background:#FFFFFF; box-shadow:inset 0 0 0 1px #E9E4D9"></i><span>White · background</span></div>
+      <div class="sw"><i style="background:#F5F1E8"></i><span>Linen · surface</span></div>
+      <div class="sw"><i style="background:#1D1815"></i><span>Ink · text</span></div>
+      <div class="sw"><i style="background:radial-gradient(circle at 42% 30%,#F0D19B,#D3903A 60%,#B47328)"></i><span>Amber · the light</span></div>
+      <div class="sw"><i style="background:#191521"></i><span>Dusk · evening</span></div>
+    </div>
+    <p>The colours had to earn their place on screen, not just look warm, so every text pairing was measured against the WCAG standard. That check even became a brand rule. Amber only reaches 2.2:1 on white, which fails, so <strong>amber never sits under text</strong>. It stays a glow, a mark, and decoration.</p>
+    <table class="cstab">
+      <tr><th>Pair</th><th>Ratio</th><th>Result</th></tr>
+      <tr><td>Ink on white (body text)</td><td><code>17.6:1</code></td><td><span class="pass">Passes AAA</span></td></tr>
+      <tr><td>Muted text on white</td><td><code>5.8:1</code></td><td><span class="pass">Passes AA</span></td></tr>
+      <tr><td>Light text on dusk</td><td><code>15.0:1</code></td><td><span class="pass">Passes AAA</span></td></tr>
+      <tr><td>Amber on white</td><td><code>2.2:1</code></td><td>never used for text</td></tr>
+    </table>
+
+    <h3>Type</h3>
+    <p>The first system leaned on a serif for headlines with a plain body font. Partway in, a check against the brief's reference said it read like a magazine, not the calm, modern product the brief pointed at. So the serif retreated to the wordmark, and <strong>Inter Tight took everything else</strong>: tight, confident, and easy to translate for a global audience. The warmth now comes from the light, the colours, and the words, not the font.</p>
+
+    <h3>Voice</h3>
+    <p>Amber talks like a thoughtful person. Short sentences, everyday words, and no clever phrases that fall apart in translation. It says "Amber is listening," not "Voice capture session active." Plain talk is a trust signal in itself, because overpromising is exactly what hurt the other products in this space.</p>
+
+    <h3>What the identity says</h3>
+    <p>The system is built to say a few clear things:</p>
+    <ul>
+      <li><b>Warm, not cold.</b> The opposite of black-glass gadgets.</li>
+      <li><b>Calm and present.</b> It sits with you instead of grabbing at you.</li>
+      <li><b>Honest and safe.</b> Nothing hidden, nothing to distrust.</li>
+      <li><b>Human, but not pretending to be human.</b> Friendly, and still a tool.</li>
+      <li><b>Made to last, not to look trendy.</b> Something you keep, not replace.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 04 PRODUCT -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">04 · THE PRODUCT</p>
+    <h2>The device came first.</h2>
+    <p>A site can only be as good as the product behind it. Amber is a thin ceramic disc, 38&thinsp;mm across and 12&thinsp;g, worn as a magnetic clip. The frosted white glass is the whole interface. A titanium ring is the only metal, and twisting it is the mute.</p>
+    <p>The way you use it became a <strong>privacy dial</strong>: three settings you choose between. Muted switches the microphones off physically. Touch means hold the glass to talk. Standby listens for a wake word. What started as a hard trade-off turned into the product's best feature. You decide how much it can hear, and the light always shows which setting is on.</p>
+    <h3>The moodboard set the materials</h3>
+    <p>A shared board of AI-device inspiration pointed the way early. One look kept repeating: round pebble shapes, matte ceramic and fabric, quiet colours with one accent, tactile dials, and warm photos of the device worn on clothing, with almost no shiny metal or chains. That changed the design directly. An early metal-bezel idea became a <strong>matte ceramic body with one thin ring</strong>, a chain became a clip, and the board pushed the site's photography toward soft, golden-hour, on-body shots instead of hardware floating on a void.</p>
+
+    <h3>The product is the brand</h3>
+    <p>The brand and the product are the same thing. You cannot tell where one ends and the other starts:</p>
+    <ul>
+      <li><b>The light is the brand's accent.</b> "Amber only where Amber acts" is literally the device. The glass glows amber, and only, when it is doing something.</li>
+      <li><b>The shape is the logo.</b> The round Orb is just the pendant seen from the front. The mark and the object are one thing.</li>
+      <li><b>The materials are the mood.</b> Warm ceramic and soft frosted glass are the calm, tactile brand made real in your hand.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 05 RESEARCH -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">05 · RESEARCH THAT SHAPED THE WORK</p>
+    <h2>Nine products had already tried this.</h2>
+    <p>The useful signal was not in the marketing. It was in the pattern of who survived. I studied the whole field, including Humane, Rabbit, Meta's glasses, Limitless, Plaud, Friend, Bee, Omi, and the reported OpenAI and Jony Ive device, and how each one sold itself. The pattern was clear: <strong>this category dies from broken trust and overpromising, not from the shape of the device.</strong> Humane is switched off for good. Friend became the face of the anti-AI backlash. The clearest winner, Plaud, won by being careful and deliberate, not always-on.</p>
+    <table class="cstab">
+      <tr><th>Product</th><th>Where it landed</th><th>The lesson</th></tr>
+      <tr><td>Humane AI Pin</td><td>Dead</td><td>Tried to replace the phone; $699 plus a monthly fee sank it.</td></tr>
+      <tr><td>Rabbit R1</td><td>Alive</td><td>Cheap, no subscription, steady updates earned goodwill.</td></tr>
+      <tr><td>Meta Ray-Ban</td><td>Category leader</td><td>A familiar shape that adds to the phone, not replaces it.</td></tr>
+      <tr><td>Limitless</td><td>Winding down</td><td>Always-on recording is a legal and social problem.</td></tr>
+      <tr><td>Plaud</td><td>Thriving</td><td>Deliberate, press-to-record capture is what people buy.</td></tr>
+      <tr><td>Friend</td><td>Backlash</td><td>Companion plus surveillance look sparked real anger.</td></tr>
+      <tr><td>Bee (Amazon)</td><td>Bought by Amazon</td><td>Easy capture is loved, but a daily flood is just new noise.</td></tr>
+      <tr><td>Omi</td><td>Small / software</td><td>Open-source privacy wins hackers, not everyday buyers.</td></tr>
+      <tr><td>OpenAI × Jony Ive</td><td>Coming 2026</td><td>Moving toward calm tech, but camera-first. An opening for us.</td></tr>
+    </table>
+
+    <h3>Why this concept, specifically</h3>
+    <p>The more useful question was why a few worked. The winners did not have the flashiest technology; they got the <strong>balance</strong> right across four things: price, usefulness, ease of use, and trust. Every failure broke one of them: Humane on price, Friend on trust, Rabbit at launch on usefulness. Amber was built to hit all four:</p>
+    <ul>
+      <li><b>Price.</b> One payment of $249, no subscription and no phone-plan fee, in a range the market already accepts and far from Humane's fatal cost.</li>
+      <li><b>Usefulness.</b> Real voice help, from quick tasks to thinking through a question, shown honestly instead of oversold.</li>
+      <li><b>Ease of use.</b> The most natural way to use AI. You just talk to it, eyes up, no screen to learn.</li>
+      <li><b>Trust.</b> The one everyone else broke, so Amber makes it the visible centre of the product.</li>
+    </ul>
+    <p>Naturalness and calm are what people want; trust is what everyone else broke. That split set the message. The site leads with the natural, calm experience, and trust does the proving: <strong>the homepage sells the calm, the product page proves the trust.</strong></p>
+    <div class="beforeafter">
+      <div class="b"><b>Before the research</b>Privacy was a side note. "Hands-free" led the pitch. Capture was described loosely.</div>
+      <div class="a"><b>After the research</b>Trust moved up front. "No camera, no fee, no hidden mic" said plainly. Benefits lead, privacy proves.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SITE / IA -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">06 · BUILDING THE SITE</p>
+    <h2>Three screens, one argument.</h2>
+    <p>Before building, I studied the brief's reference (AREA 17's work for OpenAI) and the best hardware sites. A handful of rules came out of that and shaped the pages: one idea per screen, short sentence-case headlines, specs as plain text instead of tables, one calm button repeated, and the trust section given the single longer, sincere passage on the site.</p>
+    <ul>
+      <li><b>Homepage sells the calm.</b> Why AI should not hide behind a lock screen, why a pendant, what it does across a day, and a short note on privacy.</li>
+      <li><b>Product proves the trust.</b> The device, the finishes, the privacy dial, and the "light never lies" section with a simple diagram. Price and FAQ answer the real buying questions.</li>
+      <li><b>How it works teaches the light.</b> A live demo of the light language, a day with Amber, and the app shown as three real screens.</li>
+    </ul>
+    <p>Every page moves toward the same goal: a pre-order with no subscription. <strong>Accessibility was built in from the start</strong>, not bolted on: passing contrast everywhere, clear focus outlines, reduced-motion support, a text version beside every voice example, and body text that never drops below 16px.</p>
+  </div>
+</section>
+
+<!-- 07 EVOLUTION -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">07 · HOW THE DESIGN EVOLVED</p>
+    <h2>The site changed a lot along the way.</h2>
+    <p>Almost nothing landed on the first try. Four changes mattered most:</p>
+    <ul>
+      <li><b>From editorial to modern.</b> The first look was warm and serif-heavy. Against the brief's Apple-style reference it felt too soft, so the site moved to a cleaner white system and let the warmth live in the light and the words.</li>
+      <li><b>From privacy-first to benefits-first.</b> An early build opened on privacy and read as defensive. The order flipped: lead with what Amber does across a day, then let privacy prove itself near the end.</li>
+      <li><b>From static to interactive.</b> Flat mockups could not show what Amber does or why to trust it. The key moments became things you can play with: a hero that runs real conversations, a light demo you click through, and a finish picker.</li>
+      <li><b>The hero conversation got smarter.</b> At first it showed only quick errands, like sending a text. That made Amber look basic. It was rewritten to range from a small task up to reasoning, drafting, and translation, so the first thing you see shows what it can really do.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 07 CHALLENGE -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">08 · THE DESIGN CHALLENGE</p>
+    <h2>A device with no screen still has to speak.</h2>
+    <p>A screen tells you what a device is doing. Amber has none. And it has to speak to two audiences at once, each with a different question. Three constraints shaped the answer.</p>
+    <div class="cons">
+      <div class="row"><span class="n">01</span><div><b>The wearer</b><p>Needs to know, at a glance, whether it is idle, listening, thinking, speaking, on standby, or muted. Six states, no display.</p></div></div>
+      <div class="row"><span class="n">02</span><div><b>The people nearby</b><p>Need to know it is not secretly recording them. This is the exact fear that sank the category, and it is not the wearer's to answer.</p></div></div>
+      <div class="row"><span class="n">03</span><div><b>Belief without a manual</b><p>A signal only works if a stranger trusts it without being told to. A setting buried in an app does not count.</p></div></div>
+    </div>
+    <p>The challenge was never how the wearer reads the device. It was how everyone else in the room knows they are safe.</p>
+    <h3>The fix: one light language, taught by the site</h3>
+    <p>One light says everything. Plain white glass at rest. Amber filling the glass when it listens. A thin ring moving around the edge when it thinks. The rim pulsing when it speaks. A low glow on standby. Dark when muted, with the twisted ring easy to read across a table. The honesty rule, where the light shares power with the microphone, makes it believable to a bystander without asking them to trust a setting.</p>
+    <p>Then the site does what a spec sheet cannot: it <strong>lets you learn the light language by playing with it</strong>. On the How-it-works page, you click through all six states on a live pendant and read what each one means. You learn to trust the device before you ever hold one.</p>
+  </div>
+</section>
+
+<!-- 08 PRINCIPLES + BUSINESS -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">09 · PRINCIPLES & BUSINESS IMPACT</p>
+    <h2>The principles, and why they pay off.</h2>
+    <ul>
+      <li><b>Calm over loud.</b> One accent, lots of space, slow gentle motion. It reads premium, supports the "less distraction" promise, and stands apart from a noisy field.</li>
+      <li><b>Trust you can see, not a policy you must read.</b> States you can verify, no camera. It answers the number-one worry that killed rivals, so people are readier to buy and to wear it in public.</li>
+      <li><b>Benefits first, proof second.</b> Lead with what it does for your day, then let privacy close the sale. Interest is won before risk is raised, right where buyer doubt lives.</li>
+      <li><b>Plain, honest voice.</b> No overselling. It builds belief and cuts the returns and backlash that follow inflated claims.</li>
+      <li><b>Accessible by default.</b> Passing contrast, eyes-free, easy to translate. It widens the global market and lowers brand risk.</li>
+    </ul>
+    <div class="cs-card">
+      <h4>The business case, in plain terms</h4>
+      <p>One clear goal, a $249 pre-order with no subscription, gives the site a job you can measure. In this category, <strong>the thing between the product and a sale is belief, not want</strong>. A site that makes trust easy to see wins the doubters the competition loses, and turns "just another AI gadget" into something people feel safe wearing every day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 09 RECEIPTS -->
+<section class="cs-sec">
+  <div class="cs-wrap">
+    <p class="cs-num">10 · WHAT SHIPPED</p>
+    <h2>The deliverables.</h2>
+    <ul>
+      <li><b>Brand identity.</b> The Orb logo and wordmark, a measured colour system, type and voice guidelines, and rules for style and motion.</li>
+      <li><b>Website UI.</b> Three responsive screens (Homepage, Product, How it works), built as a real, working site.</li>
+      <li><b>Interactive prototype.</b> The live site itself: the light-language demo, animated conversations, the finish picker, and the app screens.</li>
+    </ul>
+    <p style="margin-top:24px"><a class="backlink" href="https://amber-a1.vercel.app">Open the live prototype&nbsp;→</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="cs-foot">
+  <div class="cs-wrap">
+    <div class="wm">Amber <span>by A1</span></div>
+    <p>Amber is a concept product designed for the A1 interaction-design exercise. July 2026.</p>
+    <a class="backlink" href="index.html">← Back to the site</a>
+  </div>
+</footer>
+
+</body>
+</html>
