@@ -17,7 +17,7 @@
 <body>
 
 <div class="splash" id="splash" aria-hidden="true">
-  <div class="splash-word">Amber</div>
+  <div class="splash-word" data-text="Amber">Amber</div>
 </div>
 
 <header class="nav">
@@ -33,23 +33,29 @@
 <main>
 
 <!-- HERO -->
-<section class="tight" style="padding-top:clamp(56px,8vw,104px)">
+<section class="tight" style="padding-top:clamp(32px,4.5vw,56px); padding-bottom:0">
   <div class="wrap centerline">
-    <h1 class="rev" style="max-width:14ch; margin:24px auto 20px">The most natural way to talk to AI.</h1>
+    <h1 class="rev" style="max-width:14ch; margin:0 auto 20px">The most natural way to talk to AI.</h1>
     <p class="lead rev" style="max-width:46ch; margin:0 auto 14px; transition-delay:.08s">Amber is an AI companion you&nbsp;wear. <strong>Ask it anything, simply by talking.</strong></p>
     <p class="rev" style="margin-bottom:36px; transition-delay:.16s"><a class="btn big" href="#reserve" data-reserve>Reserve yours</a>&nbsp;&nbsp;<a class="btn big ghost" href="how-it-works.html">See how it works</a></p>
-    <div class="ph r45 rev hasover spill" style="max-width:520px; margin:0 auto; transition-delay:.24s"><img src="img/hero.jpg" alt="The Amber pendant worn on a linen shirt, its glass glowing softly amber">
-        <div class="herochat" data-herochat aria-hidden="true"></div>
-      </div>
   </div>
 </section>
+
+<!-- HERO VIDEO STAGE: card pins and scales to full screen while scrolling -->
+<div class="herostage">
+  <div class="herostick">
+    <div class="ph r45 rev hasover spill herobox" style="transition-delay:.24s"><video src="img/hero.mp4" poster="img/hero.jpg" autoplay muted loop playsinline aria-label="The Amber pendant worn on a linen shirt, its glass glowing softly amber"></video>
+      <div class="herochat" data-herochat aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
 
 <!-- PROBLEM -->
 <section class="duskband">
   <div class="wrap centerline rev">
     <p class="eyebrow">Why Amber exists</p>
-    <h2 style="max-width:24ch; margin:12px auto 14px">Great AI experience shouldn't hide behind a lock screen.</h2>
-    <p class="lead" style="max-width:52ch; margin:0 auto">Today, every AI conversation starts with a distracting device. You may end up twenty minutes later somewhere in a feed. <strong>Amber gives you the ease of use minus the distraction.</strong></p>
+    <h2 class="sweep" style="max-width:24ch; margin:12px auto 14px">Great AI experience shouldn't hide behind a lock screen.</h2>
+    <p class="lead sweep" style="max-width:52ch; margin:0 auto">Today, every AI conversation starts with a distracting device. You may end up twenty minutes later somewhere in a feed. <strong>Amber gives you the ease of use minus the distraction.</strong></p>
   </div>
 </section>
 
@@ -58,8 +64,8 @@
   <div class="wrap">
     <div class="shead rev">
       <p class="eyebrow">Why a pendant</p>
-      <h2>Conversation is the interface.</h2>
-      <p class="lead">Just talk to it naturally, the way AI should be used.</p>
+      <h2 class="sweep">Conversation is the interface.</h2>
+      <p class="lead sweep">Just talk to it naturally, the way AI should be used.</p>
     </div>
     <div class="trio3">
       <div class="rev">
@@ -102,10 +108,10 @@
     <div class="split">
       <div class="txt rev">
         <p class="eyebrow">Absorb</p>
-        <h2>Leave the phone. Stay reachable.</h2>
-        <p class="body">Amber has its own connection, so it works without your phone. On a walk, it reads you the message that matters and lets you reply out loud. The rest wait in the app, neatly summarized.</p>
+        <h2 class="sweep">Leave the phone. Stay reachable.</h2>
+        <p class="body sweep">Amber has its own connection, so it works without your phone. On a walk, it reads you the message that matters and lets you reply out loud. The rest wait in the app, neatly summarized.</p>
       </div>
-      <div class="vis rev"><div class="ph r11 hasover"><img src="img/walk.jpg" alt="A person walking a quiet morning street, no phone in hand">
+      <div class="vis rev"><div class="ph r11 hasover" style="max-width:440px; margin:0 auto"><img src="img/walk.jpg" alt="A person walking a quiet morning street, no phone in hand">
         <div class="chatover">
           <div class="bub me">Anything I need to deal with?</div>
           <div class="bub am"><span class="dot" aria-hidden="true"></span>Just one. The caterer needs a headcount by five.</div>
@@ -121,10 +127,10 @@
     <div class="split flip">
       <div class="txt rev">
         <p class="eyebrow">Keep</p>
-        <h2>Say it once. Keep it always.</h2>
-        <p class="body">Say it the moment it crosses your mind and Amber holds it for the right time. What you tell it is yours: readable, searchable, and deletable. <strong>It captures your words on request.</strong></p>
+        <h2 class="sweep">Say it once. Keep it always.</h2>
+        <p class="body sweep">Say it the moment it crosses your mind and Amber holds it for the right time. What you tell it is yours: readable, searchable, and deletable. <strong>It captures your words on request.</strong></p>
       </div>
-      <div class="vis rev"><div class="ph r11 hasover"><img src="img/object.jpg" alt="The Amber pendant at rest on linen">
+      <div class="vis rev"><div class="ph r11 hasover" style="max-width:440px; margin:0 auto"><img src="img/object.jpg" alt="The Amber pendant at rest on linen">
         <div class="chatover">
           <div class="bub me">Remind me to call the dentist tomorrow.</div>
           <div class="bub am"><span class="dot" aria-hidden="true"></span>Kept. I'll bring it up after breakfast.</div>
@@ -140,8 +146,8 @@
     <div class="split">
       <div class="txt rev">
         <p class="eyebrow">Bookend</p>
-        <h2>Mornings without a lock screen.</h2>
-        <p class="body">With your first coffee, Amber speaks a short brief: the weather that matters, the day's real things, the one message worth knowing about. At night it reads the day back, <strong>so you can put it down and sleep on it.</strong></p>
+        <h2 class="sweep">Mornings without a lock screen.</h2>
+        <p class="body sweep">With your first coffee, Amber speaks a short brief: the weather that matters, the day's real things, the one message worth knowing about. At night it reads the day back, <strong>so you can put it down and sleep on it.</strong></p>
       </div>
       <div class="vis rev"><div class="ph r11 hasover" style="max-width:440px; margin:0 auto"><img src="img/brief.jpg" alt="Morning coffee by a window, the pendant glowing softly as it speaks">
         <div class="chatover">
@@ -157,8 +163,8 @@
 <section class="tight" style="padding-top:0">
   <div class="wrap centerline rev">
     <p class="eyebrow" style="color:var(--ember)">And of course</p>
-    <h2 style="max-width:18ch; margin:12px auto 12px">Private by design.</h2>
-    <p class="lead" style="max-width:50ch; margin:0 auto">Amber's lamp and microphone share one circuit: if it can hear you, it glows. <a href="product.html#trust" style="color:var(--ember)">See how privacy works&nbsp;→</a></p>
+    <h2 class="sweep" style="max-width:18ch; margin:12px auto 12px">Private by design.</h2>
+    <p class="lead sweep" style="max-width:50ch; margin:0 auto">Amber's lamp and microphone share one circuit: if it can hear you, it glows. <a href="product.html#trust" style="color:var(--ember)">See how privacy works&nbsp;→</a></p>
   </div>
 </section>
 
@@ -166,9 +172,9 @@
 <section class="tight" style="padding-top:0">
   <div class="wrap rev">
     <div class="statline">
-      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="13" width="25" height="14" rx="3.5"/><path d="M35 18 v4"/><rect x="10" y="16" width="12" height="8" rx="1.5" fill="#D3903A" stroke="none"/></svg></div><b>2 days</b><span>battery life</span></div>
-      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 9 C18 9 10 17 10 27 v3 h3 c10 0 18 -8 18 -20 a15 15 0 0 0 -1 -1 z"/><path d="M12 28 L28 12" stroke="#D3903A"/><path d="M16 24 h6 M20 19 h5"/></svg></div><b>12 g</b><span>lighter than a house key</span></div>
-      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 27 h12 c1 0 1.4 -1.2 .7 -1.9 C25 23 25 21 25 18.5 a5 5 0 0 0 -10 0 c0 2.5 0 4.5 -1.7 6.6 c-.7 .7 -.3 1.9 .7 1.9 z"/><path d="M18 30.5 a2.2 2.2 0 0 0 4 0"/><path d="M9 9 L31 31" stroke="#D3903A"/></svg></div><b>0</b><span>distractions</span></div>
+      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="13" width="25" height="14" rx="3.5"/><path d="M35 18 v4"/><rect x="10" y="16" width="12" height="8" rx="1.5" fill="#D3903A" stroke="none"/></svg></div><b data-count="2" data-suffix=" d">2 d</b><span>battery life</span></div>
+      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M30 9 C18 9 10 17 10 27 v3 h3 c10 0 18 -8 18 -20 a15 15 0 0 0 -1 -1 z"/><path d="M12 28 L28 12" stroke="#D3903A"/><path d="M16 24 h6 M20 19 h5"/></svg></div><b data-count="12" data-suffix=" g">12 g</b><span>lighter than a house key</span></div>
+      <div><div class="ico"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#1D1815" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 27 h12 c1 0 1.4 -1.2 .7 -1.9 C25 23 25 21 25 18.5 a5 5 0 0 0 -10 0 c0 2.5 0 4.5 -1.7 6.6 c-.7 .7 -.3 1.9 .7 1.9 z"/><path d="M18 30.5 a2.2 2.2 0 0 0 4 0"/><path d="M9 9 L31 31" stroke="#D3903A"/></svg></div><b data-count="0" data-from="12">0</b><span>distractions</span></div>
     </div>
   </div>
 </section>
@@ -176,8 +182,8 @@
 <!-- FINAL CTA -->
 <section class="duskband" id="reserve">
   <div class="wrap centerline rev">
-    <h2 style="max-width:20ch; margin:0 auto 14px">Be present again.</h2>
-    <p class="lead" style="max-width:40ch; margin:0 auto 30px"><strong>$249.</strong> No subscription. Ships early 2027.</p>
+    <h2 class="sweep" style="max-width:20ch; margin:0 auto 14px">Be present again.</h2>
+    <p class="lead sweep" style="max-width:40ch; margin:0 auto 30px"><strong>$249.</strong> No subscription. Ships early 2027.</p>
     <p><a class="btn big fire" href="#reserve" data-reserve>Reserve yours</a></p>
   </div>
 </section>
@@ -186,16 +192,18 @@
 
 <footer>
   <div class="wrap">
-    <div class="fmark">Amber</div>
-    <nav>
-      <a href="index.html">Overview</a>
-      <a href="product.html">Product</a>
-      <a href="how-it-works.html">How it works</a>
-      <a href="case-study.html">Case study</a>
-      <a href="guidelines.html">Guidelines</a>
-      <span class="fdead">Privacy</span>
-    </nav>
+    <div class="frow">
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="product.html">Product</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="case-study.html">Case study</a>
+        <a href="guidelines.html">Guidelines</a>
+      </nav>
+      <p class="legal">A concept product, designed 2026.</p>
+    </div>
   </div>
+  <div class="fword" aria-hidden="true">Amber</div>
 </footer>
 
 <script src="js/amber.js"></script>

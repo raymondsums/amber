@@ -51,11 +51,17 @@ if (pendantDemo) {
   };
   const order = ['idle','listening','thinking','speaking','open','muted'];
   const buttons = Array.from(document.querySelectorAll('.statebar button'));
+  const bar = document.querySelector('.statebar');
   const setState = (s) => {
     pendantDemo.dataset.state = s;
     pendantDemo.classList.toggle('muted', s === 'muted');
     if (cap) cap.innerHTML = caps[s];
     buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.state === s)));
+    const btn = buttons.find(b => b.dataset.state === s);
+    if (bar && btn && bar.scrollWidth > bar.clientWidth) {
+      bar.scrollTo({ left: btn.offsetLeft - (bar.clientWidth - btn.offsetWidth) / 2,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    }
   };
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -99,17 +105,12 @@ document.querySelectorAll('[data-reserve]').forEach(btn => {
   });
 });
 
-// Nav: hide on scroll down (below the fold), reappear on scroll up
+// Nav: visible only near the top of the page, hidden once scrolled
 const navEl = document.querySelector('.nav');
 if (navEl) {
-  let lastY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (Math.abs(y - lastY) < 6) return;
-    if (y > lastY && y > window.innerHeight * 0.8) navEl.classList.add('hide');
-    else if (y < lastY) navEl.classList.remove('hide');
-    lastY = y;
-  }, { passive: true });
+  const update = () => navEl.classList.toggle('hide', window.scrollY > 80);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
 }
 
 // Companion app: focus one screen at a time (center by default), shift on hover/tap
@@ -222,3 +223,43 @@ if (finPicker) {
   new IntersectionObserver((e) => { e[0].isIntersecting ? startF() : stopF(); }, { threshold: 0.35 }).observe(finPicker);
 }
 
+
+// Stat counters: numbers count to their value when the statline scrolls into view
+{
+  const line = document.querySelector('.statline');
+  if (line) {
+    const els = [...line.querySelectorAll('b[data-count]')];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const run = () => els.forEach(el => {
+      const to = +el.dataset.count, from = +(el.dataset.from || 0), suffix = el.dataset.suffix || '';
+      if (reduced) { el.textContent = to + suffix; return; }
+      const t0 = performance.now(), dur = 1300;
+      const tick = (now) => {
+        const p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(from + (to - from) * e) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    });
+    new IntersectionObserver((entries, o) => {
+      if (entries[0].isIntersecting) { o.disconnect(); run(); }
+    }, { threshold: 0.4 }).observe(line);
+  }
+}
+
+// Hero stage: drive the card-to-fullscreen scale from scroll position
+{
+  const stage = document.querySelector('.herostage');
+  const box = stage && stage.querySelector('.herobox');
+  if (box) {
+    const upd = () => {
+      const r = stage.getBoundingClientRect();
+      const span = (r.height - window.innerHeight) * 0.85; // hit full screen a beat before release
+      const p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+      box.style.setProperty('--hp', p.toFixed(4));
+    };
+    addEventListener('scroll', upd, { passive: true });
+    addEventListener('resize', upd, { passive: true });
+    upd();
+  }
+}
